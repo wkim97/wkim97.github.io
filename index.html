@@ -67,7 +67,7 @@
       padding: 2px 14px;
       font-size: 0.9rem;
     }
-    .news-toggle:hover, .tag-btn:hover, .paper-tag:hover { background: #eef3ff; }
+    .news-toggle:hover { background: #eef3ff; }
 
     .paper-filter {
       display: flex;
@@ -84,12 +84,22 @@
       text-transform: uppercase;
       letter-spacing: 0.04em;
     }
-    .tag-btn { padding: 2px 12px; font-size: 0.9rem; }
-    .tag-btn.active { background: #2962ff; border-color: #2962ff; color: #fff; }
-
+    .tag-btn { padding: 3px 13px; font-size: 0.95rem; }
     ul.ul-papers li .description p.tags { margin-top: 4px; }
-    .paper-tag { display: inline-block; padding: 0 9px; margin: 2px 4px 0 0; font-size: 0.78rem; }
-    .paper-tag.active { background: #2962ff; border-color: #2962ff; color: #fff; }
+    .paper-tag { display: inline-block; padding: 1px 10px; margin: 2px 4px 0 0; font-size: 0.85rem; }
+
+    /* Tag colors: each Trustworthy AI tag gets its own hue; domain tags stay neutral. */
+    .tag-btn, .paper-tag { --tag: #2962ff; --tag-bg: #fff; --tag-border: #c9d6ff; }
+    :is(.tag-btn, .paper-tag)[data-tag="robust"] { --tag: #1d4ed8; --tag-bg: #eaf0ff; --tag-border: #bfd0fb; }
+    :is(.tag-btn, .paper-tag)[data-tag="secure"] { --tag: #b42318; --tag-bg: #fdeceb; --tag-border: #f5c2bd; }
+    :is(.tag-btn, .paper-tag)[data-tag="transparent"] { --tag: #067647; --tag-bg: #e7f6ee; --tag-border: #b4e2c8; }
+    :is(.tag-btn, .paper-tag)[data-tag="controllable"] { --tag: #6d28d9; --tag-bg: #f2ebfe; --tag-border: #d6c4fa; }
+    :is(.tag-btn, .paper-tag):is([data-tag="vision"], [data-tag="3d"], [data-tag="nlp"], [data-tag="embodied-ai"]) {
+      --tag: #475467; --tag-bg: #f2f4f7; --tag-border: #d0d5dd;
+    }
+    .tag-btn, .paper-tag { color: var(--tag); background: var(--tag-bg); border-color: var(--tag-border); }
+    .tag-btn:hover, .paper-tag:hover { border-color: var(--tag); }
+    .tag-btn.active, .paper-tag.active { color: #fff; background: var(--tag); border-color: var(--tag); }
     .paper-empty { padding: 20px 0 0 40px; color: #777; }
   </style>
 
@@ -356,6 +366,21 @@
                 <p class="title">AdKnob: Ad Intensity Control and Labeling for LLM-Native Advertising</p>
                 <p class="authors"><b>Woo Jae Kim</b>, Seongho Keum, Joonsung Jeon, Suhyeon Ha, Sooel Son, and Sung-eui Yoon<br /></p>
                 <p class="venue">Under review<br>
+              </div>
+            </li>
+
+            <li data-tags="vision">
+              <div class="img">
+                <img src="/resources/paper/mm2026_evbs.png" class="img-responsive" alt="">
+              </div>
+              <div class="description">
+                <p class="title">EvBS: Event-guided Blur Synthesis for Domain-adaptive Motion Deblurring</p>
+                <p class="authors">Junsik Jung, Seokryun Choi, Yoonki Cho, <b>Woo Jae Kim</b>, Andrew Jeong, and Sung-eui Yoon<br /></p>
+                <p class="venue">ACM MM 2026<br>
+                <p class="resources">
+                  <a href="https://sgvr.kaist.ac.kr/publication/evbs-event-guided-blur-synthesis-for-domain-adaptive-motion-deblurring/">[Project]</a>
+                  <a href="https://arxiv.org/abs/2608.08066">[Paper]</a>
+                </p>
               </div>
             </li>
 
@@ -642,20 +667,26 @@
             <li style="line-height:150%">
               <b>Method and System for Separating and Recalibrating Feature for Adversarial Robustness</b><br>
               Sung-eui Yoon, <b>Woo Jae Kim</b>, Yoonki Cho, and Junsik Jung<br>
-              US Patent Granted (Patent No. 12,694,655), Jul. 2026<br>
-              Japan Patent Granted (Patent No. 7628350), Jan. 2025<br>
-              Korea Patent Pending (Application No. 10-2024-0002170), Filed Jan. 2024<br>
               <i>Selected as a strategic technology by the KAIST Technology Licensing Center</i>
+              <ul>
+                <li>US Patent Granted (Patent No. 12,694,655), Jul. 2026</li>
+                <li>Japan Patent Granted (Patent No. 7628350), Jan. 2025</li>
+                <li>Korea Patent Pending (Application No. 10-2024-0002170), Filed Jan. 2024</li>
+              </ul>
             </li>
             <li style="line-height:150%">
               <b>Method and Computer Device for Generalizable Sparse-View Surface Reconstruction from Arbitrary and Unfavorable Sets</b><br>
-              Sung-eui Yoon, Youngju Na, <b>Woo Jae Kim</b>, Kyubeom Han, and Suhyeon Ha<br>
-              Korea Patent Pending (Application No. 10-2024-0071859), Filed May 2024
+              Sung-eui Yoon, Youngju Na, <b>Woo Jae Kim</b>, Kyubeom Han, and Suhyeon Ha
+              <ul>
+                <li>Korea Patent Pending (Application No. 10-2024-0071859), Filed May 2024</li>
+              </ul>
             </li>
             <li style="line-height:150%">
               <b>Pixel-wise Guidance for Utilizing Auxiliary Features in Monte Carlo Denoising</b><br>
-              Sung-eui Yoon, Kyubeom Han, and <b>Woo Jae Kim</b><br>
-              Korea Patent Pending (Application No. 10-2023-0190779), Filed Dec. 2023
+              Sung-eui Yoon, Kyubeom Han, and <b>Woo Jae Kim</b>
+              <ul>
+                <li>Korea Patent Pending (Application No. 10-2023-0190779), Filed Dec. 2023</li>
+              </ul>
             </li>
           </ul>
         </div>
@@ -670,6 +701,7 @@
           <h1>Research Grants</h1>
           <ul>
             <li style="line-height:150%"><b>College of Engineering Master's and Ph.D. Venture Research Program, KAIST, 2024 ($10,000)</b><br>
+              - Topic: Building a proactive defense against intellectual property theft of radiance fields (NeRF, 3DGS)<br>
               - Selected as one of 12 out of 73 proposals</li>
           </ul>
         </div>
