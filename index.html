@@ -56,6 +56,48 @@
 </script>
   <title>Woo Jae Kim</title>
 
+  <style>
+    #news-list > li[hidden], ul.ul-papers > li[hidden], .paper-empty[hidden], .news-toggle[hidden] { display: none !important; }
+    .news-toggle, .tag-btn, .paper-tag {
+      font: inherit;
+      cursor: pointer;
+      border-radius: 999px;
+      border: 1px solid #c9d6ff;
+      background: #fff;
+      color: #2962ff;
+      line-height: 1.4;
+    }
+    .news-toggle {
+      margin: 4px 0 0 40px;
+      padding: 2px 14px;
+      font-size: 0.9rem;
+    }
+    .news-toggle:hover, .tag-btn:hover, .paper-tag:hover { background: #eef3ff; }
+
+    .paper-filter {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px 8px;
+      margin: 4px 0 8px;
+    }
+    .tag-group-label {
+      margin-left: 10px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: #777;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .tag-btn { padding: 2px 12px; font-size: 0.9rem; }
+    .tag-btn.active { background: #2962ff; border-color: #2962ff; color: #fff; }
+
+    ul.ul-papers li .description p.tags { margin-top: 4px; }
+    .paper-tag { display: inline-block; padding: 0 9px; margin: 2px 4px 0 0; font-size: 0.78rem; }
+    .paper-tag.active { background: #2962ff; border-color: #2962ff; color: #fff; }
+    .paper-empty { padding: 20px 0 0 40px; color: #777; }
+  </style>
+
 </head>
 
 <body id="top" data-spy="scroll" data-offset="70" data-target="#navbar-main">
@@ -183,20 +225,16 @@
             <a href="https://www.qualcomm.com/research/university-relations/innovation-fellowship/winners">Qualcomm Innovation Fellowship 2023</a>.
           </p>
           <p>
-            <!-- My main research area is <b>Adversarial Machine Learning</b> focused on the computer vision domain.
-            I believe that it is imperative to diagnose the vulnerability of AI and to improve their robustness against malicious threats
-            in order to ensure their safe deployments in the real world.
-            Towards this goal, I focus on (1) devising practical adversarial attacks that can effectively diagnose the vulnerability 
-            of AI models and (2) building efficient and universal adversarial defense frameworks. -->
-            My research focuses on <b>adversarial robustness</b>, <b>AI safety</b>, and <b>3D computer vision</b>. 
-            I develop robust AI systems that maintain performance under diverse real-world threats, with recent work on 
-            protecting intellectual property of neural radiance fields and building mixture-of-experts architectures for multi-threat defense. 
-            I also collaborate extensively on 3D vision problems and privacy-preserving machine learning.
-            More recently, I am interested in building <b>robust and safe Vision-Language-Action (VLA) systems</b> that can operate reliably in the real world.
-          </p>
-          <p style="color:red">
-            <i>I am actively seeking for industrial internship positions. 
-              Please feel free to contact me for any potential opportunities!</i>
+            My research aims to build <b>trustworthy and controllable AI systems</b> that people can rely on in the real world.
+            AI models are developed in ideal settings, but once deployed they often fail under
+            <b>non-ideal conditions</b> such as adversarial attacks, unclear user instructions,
+            and uncontrollable, non-transparent outputs.
+            <!-- Common fixes change the entire model at once, which often sacrifices what the model already does well. -->
+            My work centers on <b>failure localization</b>, the idea of pinpointing where an AI system goes wrong
+            and repairing only those parts.
+            Guided by this idea, I have developed <b>robust, secure, transparent, and controllable AI</b> across
+            computer vision, 3D vision, language models, and embodied agents.
+            Going forward, I aim to build <b>agentic and physical AI systems</b> that can find and fix their own failures.
           </p>
 
 
@@ -228,7 +266,7 @@
                   <div class="description">
                     <p class="course">Ph.D in Computer Science, KAIST</p>
                     <p class="institution"><b>- Advisor: <a href="https://sgvr.kaist.ac.kr/~sungeui/">Sung-Eui Yoon</a></b></p>
-                    <p class="institution">Mar. 2023 - Current</p>
+                    <p class="institution">Mar. 2023 - Feb. 2027 (Expected)</p>
                   </div>
                 </li>
                 <li>
@@ -256,6 +294,19 @@
                   </div>
                 </li>
               </ul>
+
+              <h3>Industry Experience</h3>
+              <ul class="ul-edu fa-ul">
+                <li>
+                  <i class="fa-li fas fa-briefcase"></i>
+                  <div class="description">
+                    <p class="course">Research Intern, NAVER LABS</p>
+                    <p class="institution"><b>- Mentor: Jinhan Lee</b></p>
+                    <p class="institution">- Collaborators: Kisung Kim, Daejung Kim</p>
+                    <p class="institution">Apr. 2026 - Oct. 2026</p>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -271,8 +322,9 @@
       <div class="row">
         <div class="col-lg-12">
           <h1>News</h1>
-          <ul>
+          <ul id="news-list">
             <li>[Jun 2026] Two papers are accepted to ECCV 2026.</li>
+            <li>[Apr 2026] I started a research internship at NAVER LABS.</li>
             <li>[Jan 2026] One paper is accepted to ICRA 2026.</li>
             <li>[Jan 2026] Two papers are accepted to ICLR 2026.</li>
             <li>[Sep 2025] Our paper is chosen as the best student paper at ICIP 2025!</li>
@@ -291,6 +343,7 @@
             <li>[Mar 2022] One paper is accepted to CVPR 2022.</li>
             <li>[Jan 2022] One paper is accepted to ICASSP 2022.</li>
           </ul>
+          <button type="button" class="news-toggle" id="news-toggle" hidden aria-expanded="false"></button>
         </div>
       </div>
     </div>
@@ -304,42 +357,65 @@
 
         <div class="col-lg-12">
           <h1>Publications</h1>
+          <div class="paper-filter" id="paper-filter" role="group" aria-label="Filter publications by tag">
+            <button type="button" class="tag-btn active" data-tag="all">All</button>
+            <span class="tag-group-label">Trustworthy AI</span>
+            <button type="button" class="tag-btn" data-tag="robust">robust</button>
+            <button type="button" class="tag-btn" data-tag="secure">secure</button>
+            <button type="button" class="tag-btn" data-tag="transparent">transparent</button>
+            <button type="button" class="tag-btn" data-tag="controllable">controllable</button>
+            <span class="tag-group-label">Domain</span>
+            <button type="button" class="tag-btn" data-tag="vision">vision</button>
+            <button type="button" class="tag-btn" data-tag="3d">3d</button>
+            <button type="button" class="tag-btn" data-tag="nlp">nlp</button>
+            <button type="button" class="tag-btn" data-tag="embodied-ai">embodied ai</button>
+          </div>
         </div>
         <div class="row">
           <ul class="ul-papers">
-            <li>
+            <li data-tags="transparent controllable nlp">
               <div class="img">
                 <img src="/resources/paper/coming_soon.jpg" class="img-responsive" alt="">
+              </div>
+              <div class="description">
+                <p class="title">AdKnob: Ad Intensity Control and Labeling for LLM-Native Advertising</p>
+                <p class="authors"><b>Woo Jae Kim</b>, Seongho Keum, Joonsung Jeon, Suhyeon Ha, Sooel Son, and Sung-eui Yoon<br /></p>
+                <p class="venue">Under review<br>
+              </div>
+            </li>
+
+            <li data-tags="robust vision">
+              <div class="img">
+                <img src="/resources/paper/eccv26_rome.png" class="img-responsive" alt="">
               </div>
               <div class="description">
                 <p class="title">RoME: Robust Mixture of Low-Rank Experts against Multiple Adversarial Perturbations</p>
                 <p class="authors"><b>Woo Jae Kim</b>, Kyle Min, Suhyeon Ha, Joonsung Jeon, and Sung-eui Yoon <br /></p>
                 <p class="venue">ECCV 2026<br>
                 <p class="resources">
-                  <!-- <a href="https://qbhan.github.io/radiogs-page/">[Project]</a> -->
-                  <!-- <a href="https://arxiv.org/abs/2603.01491">[Paper]</a> -->
-                  <!-- <a href="https://github.com/qbhan/RadioGS-public">[Code]</a> -->
+                  <a href="https://wkim97.github.io/RoME/">[Project]</a> <a
+                    href="https://arxiv.org/abs/2607.06109">[Paper]</a> <a
+                    href="https://github.com/wkim97/RoME">[Code]</a>
                 </p>
               </div>
             </li>
-            
-            <li>
+
+            <li data-tags="secure vision">
               <div class="img">
-                <img src="/resources/paper/coming_soon.jpg" class="img-responsive" alt="">
+                <img src="/resources/paper/eccv26_apt.png" class="img-responsive" alt="">
               </div>
               <div class="description">
                 <p class="title">APT: Anchor-aligned Perturbations for Tamper Localization in Fully Regenerated Images</p>
                 <p class="authors">Suhyeon Ha, <b>Woo Jae Kim</b>, Joonsung Jeon, Sooel Son, and Sung-eui Yoon<br /></p>
                 <p class="venue">ECCV 2026<br>
                 <p class="resources">
-                  <!-- <a href="https://qbhan.github.io/radiogs-page/">[Project]</a> -->
-                  <!-- <a href="https://arxiv.org/abs/2603.01491">[Paper]</a> -->
-                  <!-- <a href="https://github.com/qbhan/RadioGS-public">[Code]</a> -->
+                  <a href="https://suhyeonha.github.io/APT/">[Project]</a> <a
+                    href="https://arxiv.org/abs/2608.30656">[Paper]</a>
                 </p>
               </div>
             </li>
 
-            <li>
+            <li data-tags="robust vision 3d embodied-ai">
               <div class="img">
                 <img src="/resources/paper/icra26_advpatch.png" class="img-responsive" alt="">
               </div>
@@ -354,7 +430,7 @@
               </div>
             </li>
             
-            <li>
+            <li data-tags="vision 3d">
               <div class="img">
                 <img src="/resources/paper/iclr26_radiogs.png" class="img-responsive" alt="">
               </div>
@@ -370,7 +446,7 @@
               </div>
             </li>
             
-            <li>
+            <li data-tags="secure vision">
               <div class="img">
                 <img src="/resources/paper/iclr26_mofit.png" class="img-responsive" alt="">
               </div>
@@ -386,7 +462,7 @@
               </div>
             </li>
 
-            <li>
+            <li data-tags="secure vision 3d">
               <div class="img">
                 <img src="/resources/paper/bmvc25_aegisrf.png" class="img-responsive" alt="">
               </div>
@@ -402,7 +478,7 @@
               </div>
             </li>
 
-            <li>
+            <li data-tags="vision">
               <div class="img">
                 <img src="/resources/paper/bmvc25_vfi.png" class="img-responsive" alt="">
               </div>
@@ -416,7 +492,7 @@
               </div>
             </li>
 
-            <li>
+            <li data-tags="vision 3d">
               <div class="img">
                 <img src="/resources/paper/icip25_share.png" class="img-responsive" alt="">
               </div>
@@ -430,7 +506,7 @@
               </div>
             </li>
 
-            <li>
+            <li data-tags="secure vision">
               <div class="img">
                 <img src="/resources/paper/iclr25_advpaint.png" class="img-responsive" alt="">
               </div>
@@ -446,7 +522,7 @@
               </div>
             </li>
 
-            <li>
+            <li data-tags="robust vision">
               <div class="img">
                 <img src="/resources/paper/neurips24_bau.jpg" class="img-responsive" alt="">
               </div>
@@ -462,7 +538,7 @@
               </div>
             </li>
 
-            <li>
+            <li data-tags="robust vision 3d">
               <div class="img">
                 <img src="/resources/paper/cvpr24_uforecon.png" class="img-responsive" alt="">
               </div>
@@ -478,7 +554,7 @@
               </div>
             </li>
 
-            <li>
+            <li data-tags="vision">
               <div class="img">
                 <img src="/resources/paper/iccv23_pixel.jfif" class="img-responsive" alt="">
               </div>
@@ -495,7 +571,7 @@
               </div>
             </li>
 
-            <li>
+            <li data-tags="robust vision">
               <div class="img">
                 <img src="/resources/paper/cvpr23_fsr.jpg" class="img-responsive" alt="">
               </div>
@@ -511,7 +587,7 @@
               </div>
             </li>
 
-            <li>
+            <li data-tags="vision">
               <div class="img">
                 <img src="/resources/paper/i3d_denoising.png" class="img-responsive" alt="">
               </div>
@@ -528,7 +604,7 @@
               </div>
             </li>
 
-            <li>
+            <li data-tags="robust vision">
               <div class="img">
                 <img src="/resources/paper/icip22_ada.png" class="img-responsive" alt="">
               </div>
@@ -544,7 +620,7 @@
               </div>
             </li>
 
-            <li>
+            <li data-tags="vision">
               <div class="img">
                 <img src="/resources/paper/cvpr22_pplr.jpg" class="img-responsive" alt="">
               </div>
@@ -560,7 +636,7 @@
               </div>
             </li>
 
-            <li>
+            <li data-tags="vision">
               <div class="img">
                 <img src="/resources/paper/icassp22_inpainting.png" class="img-responsive" alt="">
               </div>
@@ -690,6 +766,84 @@
     integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
 
   <script src="/js/academic.min.a8d7005002cb4a052fd6d721e83df9ba.js"></script>
+
+  <script>
+    (function () {
+      // News: show the latest NEWS_LIMIT items, collapse the rest.
+      var NEWS_LIMIT = 10;
+      var newsItems = document.querySelectorAll('#news-list > li');
+      var newsToggle = document.getElementById('news-toggle');
+      var hiddenCount = newsItems.length - NEWS_LIMIT;
+      if (hiddenCount > 0) {
+        var setNewsExpanded = function (expanded) {
+          for (var i = NEWS_LIMIT; i < newsItems.length; i++) newsItems[i].hidden = !expanded;
+          newsToggle.textContent = expanded ? 'Show less' : 'More (' + hiddenCount + ')';
+          newsToggle.setAttribute('aria-expanded', expanded);
+        };
+        setNewsExpanded(false);
+        newsToggle.hidden = false;
+        newsToggle.addEventListener('click', function () {
+          setNewsExpanded(newsToggle.getAttribute('aria-expanded') !== 'true');
+        });
+      }
+
+      // Publications: render tag chips from data-tags and filter by tag.
+      var papers = document.querySelectorAll('ul.ul-papers > li[data-tags]');
+      var filterButtons = document.querySelectorAll('#paper-filter .tag-btn');
+      var labels = {};
+      filterButtons.forEach(function (b) { labels[b.dataset.tag] = b.textContent; });
+
+      var empty = document.createElement('p');
+      empty.className = 'paper-empty';
+      empty.textContent = 'No publications with this tag yet.';
+      empty.hidden = true;
+      document.querySelector('ul.ul-papers').after(empty);
+
+      papers.forEach(function (li) {
+        var p = document.createElement('p');
+        p.className = 'tags';
+        li.dataset.tags.split(' ').forEach(function (tag) {
+          var chip = document.createElement('button');
+          chip.type = 'button';
+          chip.className = 'paper-tag';
+          chip.dataset.tag = tag;
+          chip.textContent = labels[tag] || tag;
+          p.appendChild(chip);
+        });
+        li.querySelector('.description').appendChild(p);
+      });
+
+      function applyFilter(tag) {
+        var shown = 0;
+        papers.forEach(function (li) {
+          var match = tag === 'all' || li.dataset.tags.split(' ').indexOf(tag) !== -1;
+          li.hidden = !match;
+          if (match) shown++;
+        });
+        empty.hidden = shown > 0;
+        filterButtons.forEach(function (b) {
+          b.classList.toggle('active', b.dataset.tag === tag);
+          b.setAttribute('aria-pressed', b.dataset.tag === tag);
+        });
+        document.querySelectorAll('.paper-tag').forEach(function (c) {
+          c.classList.toggle('active', c.dataset.tag === tag);
+        });
+      }
+
+      document.getElementById('papers').addEventListener('click', function (e) {
+        var btn = e.target.closest('.tag-btn, .paper-tag');
+        if (!btn) return;
+        var tag = btn.dataset.tag;
+        // Clicking the active tag again resets to All.
+        if (tag !== 'all' && btn.classList.contains('active')) tag = 'all';
+        applyFilter(tag);
+        if (btn.classList.contains('paper-tag')) {
+          document.getElementById('paper-filter').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+      applyFilter('all');
+    })();
+  </script>
 
 
 
