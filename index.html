@@ -46,11 +46,6 @@
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "/?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  },
   "url": "/"
 }
 </script>
@@ -102,35 +97,6 @@
 
 <body id="top" data-spy="scroll" data-offset="70" data-target="#navbar-main">
 
-  <aside class="search-results" id="search">
-    <div class="container">
-      <section class="search-header">
-
-        <div class="row no-gutters justify-content-between mb-3">
-          <div class="col-6">
-            <h1>Search</h1>
-          </div>
-          <div class="col-6 col-search-close">
-            <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
-          </div>
-        </div>
-
-        <div id="search-box">
-          <input name="q" id="search-query" placeholder="Search..." autocapitalize="off" autocomplete="off"
-            autocorrect="off" spellcheck="false" type="search">
-        </div>
-
-      </section>
-      <section class="section-search-results">
-
-        <div id="search-hits">
-        </div>
-
-      </section>
-    </div>
-  </aside>
-
-
   <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
     <div class="container">
       <div class="d-none d-lg-inline-flex">
@@ -153,11 +119,27 @@
           </li>
 
           <li class="nav-item">
+            <a class="nav-link " href="/#news" data-target="#news"><span>News</span></a>
+          </li>
+
+          <li class="nav-item">
             <a class="nav-link " href="/#papers" data-target="#papers"><span>Publications</span></a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="/#awards" data-target="#awards"><span>Awards &amp; Honors</span></a>
+            <a class="nav-link " href="/#patents" data-target="#patents"><span>Patents</span></a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#grants" data-target="#grants"><span>Grants</span></a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#awards" data-target="#awards"><span>Awards</span></a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#talks" data-target="#talks"><span>Talks</span></a>
           </li>
 
           <li class="nav-item">
@@ -167,14 +149,6 @@
 
         </ul>
       </div>
-
-      <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
-
-        <li class="nav-item">
-          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
-        </li>
-
-      </ul>
 
     </div>
   </nav>
@@ -218,10 +192,11 @@
 
           <p>
             I am a Ph.D. candidate in <a href="https://sgvr.kaist.ac.kr">Scalable Graphics, Vision, and Robotics (SGVR) Lab</a> 
-            at KAIST advised by Prof. <a href="https://sgvr.kaist.ac.kr/~sungeui/">Sung-Eui Yoon</a>.
+            at KAIST advised by Prof. <a href="https://sgvr.kaist.ac.kr/~sungeui/">Sung-eui Yoon</a>.
             I received my M.S. degree in Computer Science from KAIST and received my B.S. degree in Computer Science from KAIST in 2021 
-            with minor in Electrical Engineering. I spent most of my childhood growing up in the United States, having graduated from 
-            Northview High School in Johns Creek, GA. I am also a recipient of the 
+            with minor in Electrical Engineering. 
+            <!-- I spent most of my childhood growing up in the United States, having graduated from Northview High School in Johns Creek, GA.  -->
+            I am also a recipient of the 
             <a href="https://www.qualcomm.com/research/university-relations/innovation-fellowship/winners">Qualcomm Innovation Fellowship 2023</a>.
           </p>
           <p>
@@ -265,7 +240,7 @@
                   <i class="fa-li fas fa-graduation-cap"></i>
                   <div class="description">
                     <p class="course">Ph.D in Computer Science, KAIST</p>
-                    <p class="institution"><b>- Advisor: <a href="https://sgvr.kaist.ac.kr/~sungeui/">Sung-Eui Yoon</a></b></p>
+                    <p class="institution"><b>- Advisor: <a href="https://sgvr.kaist.ac.kr/~sungeui/">Sung-eui Yoon</a></b></p>
                     <p class="institution">Mar. 2023 - Feb. 2027 (Expected)</p>
                   </div>
                 </li>
@@ -273,7 +248,7 @@
                   <i class="fa-li fas fa-graduation-cap"></i>
                   <div class="description">
                     <p class="course">M.S. in Computer Science, KAIST</p>
-                    <p class="institution"><b>- Advisor: <a href="https://sgvr.kaist.ac.kr/~sungeui/">Sung-Eui Yoon</a></b></p>
+                    <p class="institution"><b>- Advisor: <a href="https://sgvr.kaist.ac.kr/~sungeui/">Sung-eui Yoon</a></b></p>
                     <p class="institution">Mar. 2021 - Feb. 2023</p>
                   </div>
                 </li>
@@ -285,14 +260,13 @@
                     <p class="institution">Sep. 2016 - Feb. 2021</p>
                   </div>
                 </li>
-                <li>
+                <!-- <li>
                   <i class="fa-li fas fa-graduation-cap"></i>
                   <div class="description">
                     <p class="course">High School, Northview High School, Johns Creek, GA, USA</p>
-                    <!-- <p class="institution"><b>- Minor in Electrical Engineering</b></p> -->
                     <p class="institution">Sep. 2012 - May. 2016</p>
                   </div>
-                </li>
+                </li> -->
               </ul>
 
               <h3>Industry Experience</h3>
@@ -303,6 +277,7 @@
                     <p class="course">Research Intern, NAVER LABS</p>
                     <p class="institution"><b>- Mentor: Jinhan Lee</b></p>
                     <p class="institution">- Collaborators: Kisung Kim, Daejung Kim</p>
+                    <p class="institution">- Topic: Vision-Language Navigation under imperfect user instructions</p>
                     <p class="institution">Apr. 2026 - Oct. 2026</p>
                   </div>
                 </li>
@@ -421,7 +396,7 @@
               </div>
               <div class="description">
                 <p class="title">Beyond the Patch: Exploring Vulnerabilities of Visuomotor Policies via Viewpoint-Consistent 3D Adversarial Object</p>
-                <p class="authors">Chanmi Lee, Minsung Yoon, <b>Woo Jae Kim</b>, Sebin Lee, and Sung-Eui Yoon<br /></p>
+                <p class="authors">Chanmi Lee, Minsung Yoon, <b>Woo Jae Kim</b>, Sebin Lee, and Sung-eui Yoon<br /></p>
                 <p class="venue">ICRA 2026<br>
                 <p class="resources">
                   <a href="https://chan-mi-lee.github.io/3DAdvObj/">[Project]</a>
@@ -436,7 +411,7 @@
               </div>
               <div class="description">
                 <p class="title">Radiometrically Consistent Gaussian Surfels for Inverse Rendering</p>
-                <p class="authors">Kyu Beom Han, Jaeyoon Kim, <b>Woo Jae Kim</b>, Jinhwan Seo, and Sung-Eui Yoon<br /></p>
+                <p class="authors">Kyubeom Han, Jaeyoon Kim, <b>Woo Jae Kim</b>, Jinhwan Seo, and Sung-eui Yoon<br /></p>
                 <p class="venue">ICLR 2026 <a style="color:red">Oral paper</a><br>
                 <p class="resources">
                   <a href="https://qbhan.github.io/radiogs-page/">[Project]</a>
@@ -452,7 +427,7 @@
               </div>
               <div class="description">
                 <p class="title">No Caption, No Problem: Caption-Free Membership Inference via Model-Fitted Embeddings</p>
-                <p class="authors">Joonsung Jeon, <b>Woo Jae Kim</b>, Suhyeon Ha, Sooel Son, and Sung-Eui Yoon<br /></p>
+                <p class="authors">Joonsung Jeon, <b>Woo Jae Kim</b>, Suhyeon Ha, Sooel Son, and Sung-eui Yoon<br /></p>
                 <p class="venue">ICLR 2026<br>
                 <p class="resources">
                   <a href="https://sgvr.kaist.ac.kr/~joonsung/MoFit/">[Project]</a>
@@ -468,7 +443,7 @@
               </div>
               <div class="description">
                 <p class="title">AegisRF: Adversarial Perturbations Guided with Sensitivity for Protecting Intellectual Property of Neural Radiance Fields</p>
-                <p class="authors"><b>Woo Jae Kim</b>, Kyu Beom Han, Yoonki Cho, Youngju Na, Junsik Jung, Sooel Son, and Sung-Eui Yoon<br /></p>
+                <p class="authors"><b>Woo Jae Kim</b>, Kyubeom Han, Yoonki Cho, Youngju Na, Junsik Jung, Sooel Son, and Sung-eui Yoon<br /></p>
                 <p class="venue">BMVC 2025<br>
                 <p class="resources">
                   <a href="https://sgvr.kaist.ac.kr/~wjkim/AegisRF/">[Project]</a> <a
@@ -484,7 +459,7 @@
               </div>
               <div class="description">
                 <p class="title">Learning Event-guided Exposure-agnostic Video Frame Interpolation via Adaptive Feature Blending</p>
-                <p class="authors">Junsik Jung, Yoonki Cho, <b>Woo Jae Kim</b>, Lin Wang, and Sung-Eui Yoon<br /></p>
+                <p class="authors">Junsik Jung, Yoonki Cho, <b>Woo Jae Kim</b>, Lin Wang, and Sung-eui Yoon<br /></p>
                 <p class="venue">BMVC 2025<br>
                 <p class="resources">
                   <a href="https://arxiv.org/abs/2510.22565">[Paper]</a>
@@ -498,7 +473,7 @@
               </div>
               <div class="description">
                 <p class="title">Pose-free 3D Gaussian splatting via shape-ray estimation</p>
-                <p class="authors">Youngju Na*, Taeyeon Kim*, Jumin Lee, Kyu Beom Han, <b>Woo Jae Kim</b>, and Sung-Eui Yoon<br /></p>
+                <p class="authors">Youngju Na*, Taeyeon Kim*, Jumin Lee, Kyubeom Han, <b>Woo Jae Kim</b>, and Sung-eui Yoon<br /></p>
                 <p class="venue">ICIP 2025 <a style="color:red">Best student paper award</a> (Top 0.16%)<br>
                 <p class="resources">
                   <a href="https://arxiv.org/abs/2505.22978">[Paper]</a>
@@ -512,7 +487,7 @@
               </div>
               <div class="description">
                 <p class="title">AdvPaint: Protecting Images from Inpainting Manipulation via Adversarial Attention Disruption</p>
-                <p class="authors">Joonsung Jeon, <b>Woo Jae Kim</b>, Suhyeon Ha, Sooel Son, and Sung-Eui Yoon<br /></p>
+                <p class="authors">Joonsung Jeon, <b>Woo Jae Kim</b>, Suhyeon Ha, Sooel Son, and Sung-eui Yoon<br /></p>
                 <p class="venue">ICLR 2025<br>
                 <p class="resources">
                   <a href="https://sgvr.kaist.ac.kr/~joonsung/AdvPaint/">[Project]</a> <a
@@ -528,7 +503,7 @@
               </div>
               <div class="description">
                 <p class="title">Generalizable Person Re-identification via Balancing Alignment and Uniformity</p>
-                <p class="authors">Yoonki Cho, Jaeyoon Kim, <b>Woo Jae Kim</b>, Junsik Jung, and Sung-Eui Yoon<br /></p>
+                <p class="authors">Yoonki Cho, Jaeyoon Kim, <b>Woo Jae Kim</b>, Junsik Jung, and Sung-eui Yoon<br /></p>
                 <p class="venue">NeurIPS 2024<br>
                 <p class="resources">
                   <a href="https://sgvr.kaist.ac.kr/~yoonki/BAU/">[Project]</a> <a
@@ -544,7 +519,7 @@
               </div>
               <div class="description">
                 <p class="title">UFORecon: Generalizable Sparse-View Surface Reconstruction from Arbitrary and UnFavOrable Sets</p>
-                <p class="authors">Youngju Na, <b>Woo Jae Kim</b>, Kyu Beom Han, Suhyeon Ha, and Sung-Eui Yoon<br /></p>
+                <p class="authors">Youngju Na, <b>Woo Jae Kim</b>, Kyubeom Han, Suhyeon Ha, and Sung-eui Yoon<br /></p>
                 <p class="venue">CVPR 2024<br>
                 <p class="resources">
                   <a href="https://youngju-na.github.io/uforecon.github.io/">[Project]</a> <a
@@ -560,7 +535,7 @@
               </div>
               <div class="description">
                 <p class="title">Towards Content-based Pixel Retrieval in Revisited Oxford and Paris</p>
-                <p class="authors">Guoyuan An, <b>Woo Jae Kim</b>, Saelyne Yang, Rong Li, Yuchi Huo, and Sung-Eui Yoon<br /></p>
+                <p class="authors">Guoyuan An, <b>Woo Jae Kim</b>, Saelyne Yang, Rong Li, Yuchi Huo, and Sung-eui Yoon<br /></p>
                 <p class="venue">ICCV 2023<br>
                 <p class="resources">
                   <a href="https://sgvr.kaist.ac.kr/~guoyuan/Segment_retrieval/">[Project]</a> <a
@@ -577,7 +552,7 @@
               </div>
               <div class="description">
                 <p class="title">Feature Separation and Recalibration for Adversarial Robustness</p>
-                <p class="authors"><b>Woo Jae Kim</b>, Yoonki Cho, Junsik Jung, and Sung-Eui Yoon<br /></p>
+                <p class="authors"><b>Woo Jae Kim</b>, Yoonki Cho, Junsik Jung, and Sung-eui Yoon<br /></p>
                 <p class="venue">CVPR 2023 <a style="color:red">Highlights paper</a> (~2.5% acceptance rate)<br>
                 <p class="resources">
                   <a href="https://sgvr.kaist.ac.kr/~wjkim/FSR/">[Project]</a> <a
@@ -593,7 +568,7 @@
               </div>
               <div class="description">
                 <p class="title">Pixel-wise Guidance for Utilizing Auxiliary Features in Monte Carlo Denoising</p>
-                <p class="authors">Kyubeom Han, Olivia G. Odenthal, <b>Woo Jae Kim</b>, and Sung-Eui Yoon<br /></p>
+                <p class="authors">Kyubeom Han, Olivia G. Odenthal, <b>Woo Jae Kim</b>, and Sung-eui Yoon<br /></p>
                 <p class="venue">i3D 2023<br></p>
                 <p><i>also published at Proceedings of the ACM on Computer Graphics and Interactive Techniques (PACMCGIT)</i></p>
                 <p class="resources">
@@ -610,7 +585,7 @@
               </div>
               <div class="description">
                 <p class="title">Diverse Generative Perturbations on Attention Space for Transferable Adversarial Attacks</p>
-                <p class="authors"><b>Woo Jae Kim</b>, Seunghoon Hong, and Sung-Eui Yoon<br /></p>
+                <p class="authors"><b>Woo Jae Kim</b>, Seunghoon Hong, and Sung-eui Yoon<br /></p>
                 <p class="venue">ICIP 2022 <a style="color:red">Oral paper</a> (~10% acceptance rate)<br>
                 <p class="resources">
                   <a href="https://sgvr.kaist.ac.kr/~wjkim/ADA/">[Project]</a> <a
@@ -626,7 +601,7 @@
               </div>
               <div class="description">
                 <p class="title">Part-based Pseudo Label Refinement for Unsupervised Person Re-identification</p>
-                <p class="authors">Yoonki Cho, <b>Woo Jae Kim</b>, Seunghoon Hong, and Sung-Eui Yoon<br /></p>
+                <p class="authors">Yoonki Cho, <b>Woo Jae Kim</b>, Seunghoon Hong, and Sung-eui Yoon<br /></p>
                 <p class="venue">CVPR 2022<br>
                 <p class="resources">
                   <a href="https://sgvr.kaist.ac.kr/~yoonki/PPLR/">[Project]</a> <a
@@ -642,7 +617,7 @@
               </div>
               <div class="description">
                 <p class="title">Deep Video Inpainting Guided by Audio-Visual Self-Supervision</p>
-                <p class="authors">Kyuyeon Kim, Junsik Jung*, <b>Woo Jae Kim*</b>, and Sung-Eui Yoon <b>(* equal contributions)</b><br /></p>
+                <p class="authors">Kyuyeon Kim, Junsik Jung*, <b>Woo Jae Kim*</b>, and Sung-eui Yoon <b>(* equal contributions)</b><br /></p>
                 <p class="venue">ICASSP 2022<br>
                 <p class="resources">
                   <a href="https://kyuyeon.notion.site/kyuyeon/Deep-Video-Inpainting-Guided-by-Audio-Visual-Self-Supervision-8f554e45a3ea4d1b87adfbac5e0b2373">[Project]</a> <a
@@ -658,23 +633,69 @@
     </div>
   </section>
 
+  <section id="patents" class="home-section wg-blank   " style="padding: 20px 0 20px 0;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1>Patents</h1>
+          <ul>
+            <li style="line-height:150%">
+              <b>Method and System for Separating and Recalibrating Feature for Adversarial Robustness</b><br>
+              Sung-eui Yoon, <b>Woo Jae Kim</b>, Yoonki Cho, and Junsik Jung<br>
+              US Patent Granted (Patent No. 12,694,655), Jul. 2026<br>
+              Japan Patent Granted (Patent No. 7628350), Jan. 2025<br>
+              Korea Patent Pending (Application No. 10-2024-0002170), Filed Jan. 2024<br>
+              <i>Selected as a strategic technology by the KAIST Technology Licensing Center</i>
+            </li>
+            <li style="line-height:150%">
+              <b>Method and Computer Device for Generalizable Sparse-View Surface Reconstruction from Arbitrary and Unfavorable Sets</b><br>
+              Sung-eui Yoon, Youngju Na, <b>Woo Jae Kim</b>, Kyubeom Han, and Suhyeon Ha<br>
+              Korea Patent Pending (Application No. 10-2024-0071859), Filed May 2024
+            </li>
+            <li style="line-height:150%">
+              <b>Pixel-wise Guidance for Utilizing Auxiliary Features in Monte Carlo Denoising</b><br>
+              Sung-eui Yoon, Kyubeom Han, and <b>Woo Jae Kim</b><br>
+              Korea Patent Pending (Application No. 10-2023-0190779), Filed Dec. 2023
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="grants" class="home-section wg-papers   " style="padding: 20px 0 20px 0;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1>Research Grants</h1>
+          <ul>
+            <li style="line-height:150%"><b>College of Engineering Master's and Ph.D. Venture Research Program, KAIST, 2024 ($10,000)</b><br>
+              - Selected as one of 12 out of 73 proposals</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="awards" class="home-section wg-papers   " style="padding: 20px 0 20px 0;">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
           <h1>Awards &amp; Honors</h1>
           <ul>
-            <li style="line-height:150%"><b>Winner, Qualcomm Innovation Fellowship, 2023 ($4000)</b></li>
+            <li style="line-height:150%"><b>Best Student Paper Award (as co-author), International Conference on Image Processing (ICIP), 2025</b></li>
+            <li style="line-height:150%"><b>Research Impact Award, SGVR Lab, KAIST, 2025</b></li>
+            <li style="line-height:150%"><b>Recipient, Qualcomm Innovation Fellowship, 2023</b></li>
             <!-- - <i>Received the Qualcomm Innovation Fellowship (4000 USD).</i><br> -->
             <li style="line-height:150%"><b>Paper Award, 34th Workshop on Image Processing and Image Understanding (IPIU), 2022</b></li>  
             <!-- - <i>Developed an adversarially robust pooling operation that can replace various downsampling operations of CNN.</i><br>
             - <i>적대적 공격에 강인한 피처 신뢰도 기반 다운샘플링. In IPIU, 2022</i> -->
-            <li><b>Best Teaching Assistant Award, School of Computing, KAIST, 2021 & 2023</b></li>  
+            <li><b>Best Teaching Assistant Award, School of Computing, KAIST, 2022 & 2023</b></li>
             <!-- - <i>Worked as a teaching assistant for CS206: Data Structure.</i> -->
-            <li><b>Grand Prix (1st place), Undergraduate Research Program, KAIST, 2021</b></li>  
+            <li><b>Grand Prix Award (1st place), Undergraduate Research Program (URP), KAIST, 2021</b></li>
             <!-- - <i>Developed a highly transferable black-box adversarial attack based on diverse image attention disruption.</i><br>
             - <i>Diverse Generative Perturbations on Attention Space for Transferable Adversarial Attacks. In ICIP, 2022</i> -->
-            <li><b>National Government Fellowship, South Korea Government, 2016 - Present</b></li>  
+            <li><b>National Government Fellowship, South Korea Government, 2016 - Present</b></li>
           </ul>
         </div>
       </div>
@@ -702,21 +723,23 @@
       <div class="row">
         <div class="col-lg-12">
           <h1>Experiences</h1>
+          <h2 id="teaching">Teaching Experience</h2>
+          <ul>
+            <li>Teaching Assistant, CS588: Deep Learning based Image Search, KAIST (2024)</li>
+            <li>Teaching Assistant, AI Expert Program, Samsung Electronics (2023, 2025)</li>
+            <li>Teaching Assistant, CS101: Introduction to Programming, KAIST (2018-2019, 2021-2023)</li>
+            <li>Teaching Assistant, CS206: Data Structure, KAIST (2021, 2023)</li>
+          </ul>
           <h2 id="reviewer">Reviewer</h2>
           <ul>
             <li>CVPR (2023-2026)</li>
-            <li>ICCV (2023, 2025)</li>
-            <li>ECCV (2024, 2026)</li>
+            <li>ICCV (2023-2025)</li>
+            <li>ECCV (2024-2026)</li>
             <li>NeurIPS (2025-2026)</li>
             <li>ACM MM (2025)</li>
-            <li>WACV (2025)</li>
+            <li>WACV (2025-2026)</li>
             <li>ACCV (2024)</li>
           </ul>
-          <!-- <h2 id="reviewer">Teaching Assistant</h2>
-          <ul>
-            <li>CS101: Introduction to Programming, KAIST (Spring 2023, Spring 2022, Spring 2021, Fall 2019, Fall 2018)</li>
-            <li>CS206: Data Structure, KAIST (Fall 2021)</li>
-          </ul> -->
         </div>
       </div>
     </div>
@@ -737,38 +760,18 @@
   <script>const code_highlighting = false;</script>
   <script>const isSiteThemeDark = false;</script>
 
-  <script>
-    const search_config = { "indexURI": "/index.json", "minLength": 1, "threshold": 0.3 };
-    const i18n = { "no_results": "No results found", "placeholder": "Search...", "results": "results found" };
-    const content_type = {
-      'post': "Posts",
-      'project': "Projects",
-      'publication': "Publications",
-      'talk': "Talks"
-    };
-  </script>
-
-  <script id="search-hit-fuse-template" type="text/x-template">
-      <div class="search-hit" id="summary-{{key}}">
-      <div class="search-hit-content">
-        <div class="search-hit-name">
-          <a href="{{relpermalink}}">{{title}}</a>
-          <div class="article-metadata search-hit-type">{{type}}</div>
-          <p class="search-hit-description">{{snippet}}</p>
-        </div>
-      </div>
-      </div>
-    </script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js"
-    integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js"
-    integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+  <!-- Search is disabled. The theme bundle still reads search_config at load time, so keep it defined. -->
+  <script>const search_config = { "indexURI": "/index.json", "minLength": 1, "threshold": 0.3 };</script>
 
   <script src="/js/academic.min.a8d7005002cb4a052fd6d721e83df9ba.js"></script>
 
   <script>
     (function () {
+      // Search is disabled: stop the theme's "/" shortcut from opening an empty search overlay.
+      window.addEventListener('keydown', function (e) {
+        if (e.which === 191 && !e.shiftKey) e.stopPropagation();
+      }, true);
+
       // News: show the latest NEWS_LIMIT items, collapse the rest.
       var NEWS_LIMIT = 10;
       var newsItems = document.querySelectorAll('#news-list > li');
